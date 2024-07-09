@@ -11,6 +11,13 @@ const queries = {
     });
     return token;
   },
+
+  getCurrentLoggedInUser: async (_: any, parameters: any, context: any) => {
+    if (context && context.user) {
+      return context.user;
+    }
+    throw new Error("I don't know who are you?");
+  },
 };
 
 const mutations = {
